@@ -51,9 +51,6 @@
   <header>
     <img src="vinix71.jpg" alt="Logo" class="logo">
     <nav>
-      <a href="#" id="nav-home">Home</a>
-      <a href="#" id="nav-skill">Skill Passport</a>
-      <a href="#" id="nav-showcase">Showcase</a>
       <button id="btn-logout" style="margin-left:18px;padding:6px 10px;border-radius:6px;border:1px solid #ddd;background:#fff;cursor:pointer">Logout</button>
     </nav>
   </header>
@@ -92,6 +89,7 @@
           <button id="page-home-btn" class="active">Home</button>
           <button id="page-skill-btn">Skill Passport</button>
           <button id="page-showcase-btn">Showcase</button>
+          <button id="page-cv-btn">CV Generator</button>
         </div>
       </div>
     </div>
@@ -131,6 +129,43 @@
           <p style="color:var(--gray)">Kumpulan contoh pekerjaan.</p>
           <div id="portfolio-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px"></div>
         </div>
+        <div id="page-cv" class="card" style="display:none;">
+        <h3>CV Generator</h3>
+        <p style="color: var(--gray); margin-top: 6px;">
+          Untuk menikmati fitur CV Generator anda harus melakukan payment bulanan.
+        </p>
+
+        <div style="
+            margin-top: 16px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            text-align:center;
+        ">
+          <h4 style="margin:0 0 10px 0;">Beli Akses CV Generator</h4>
+          <p style="color:var(--gray); font-size:14px;">
+            Klik tombol di bawah untuk melakukan pembelian.
+          </p>
+
+          <a href="https://wa.me/6281316960245?text=Hai,%20saya%20mau%20pesan%20CV%20Generator%20nya%20dong!"
+            target="_blank"
+            style="
+              margin-top:14px;
+              display:inline-block;
+              padding:10px 20px;
+              border-radius:8px;
+              background:var(--blue);
+              color:white;
+              text-decoration:none;
+              font-weight:600;
+            ">
+            💬 Beli Sekarang via WhatsApp
+          </a>
+        </div>
+      </div>
+
       </div>
 
       <!-- right column summary -->
@@ -169,10 +204,12 @@ const $ = s => document.querySelector(s)
 const pageHomeBtn = $('#page-home-btn')
 const pageSkillBtn = $('#page-skill-btn')
 const pageShowcaseBtn = $('#page-showcase-btn')
+const pageCVBtn = $('#page-cv-btn')
 
 const pageHome = $('#page-home')
 const pageSkill = $('#page-skill')
 const pageShowcase = $('#page-showcase')
+const pageCV = $('#page-cv')
 
 const avatarImg = $('#avatar-img')
 const profileName = $('#profile-name')
@@ -198,14 +235,17 @@ function showPage(x){
   pageHome.style.display = x=='home' ? 'block':'none'
   pageSkill.style.display = x=='skill' ? 'block':'none'
   pageShowcase.style.display = x=='showcase' ? 'block':'none'
+  pageCV.style.display = x=='cv' ? 'block':'none'
 
   pageHomeBtn.classList.toggle('active', x=='home')
   pageSkillBtn.classList.toggle('active', x=='skill')
   pageShowcaseBtn.classList.toggle('active', x=='showcase')
+  pageCVBtn.classList.toggle('active', x=='cv')
 }
 pageHomeBtn.onclick = ()=> showPage('home')
 pageSkillBtn.onclick = ()=> showPage('skill')
 pageShowcaseBtn.onclick = ()=> showPage('showcase')
+pageCVBtn.onclick = ()=> showPage('cv')
 
 // ---- LOGOUT ----
 $('#btn-logout').addEventListener('click', async ()=>{
